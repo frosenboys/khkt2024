@@ -6,7 +6,7 @@
 #include <Wire.h>
 
 // Define
-#define RELAY_PIN 12
+#define RELAY_PIN 4
 
 SHT3x Sensor;
 const char* ssid = "Selee";
@@ -30,13 +30,13 @@ void setup(){
     // wait 1 second for re-trying
     delay(1000);
     wait++;
-    if (wait == 20) break;
+    if (wait == 10) break;
   }
   if (WiFi.status() == WL_CONNECTED){
     connected = 1;
-    Serial.print("Connected");
+    Serial.println("Connected");
   }
-  else Serial.print("Connect failed");
+  else Serial.println("Connect failed");
 }
 int k=0;
 void loop(){
@@ -83,4 +83,3 @@ void alert(String content){
       https.end();
     }
 }
-
